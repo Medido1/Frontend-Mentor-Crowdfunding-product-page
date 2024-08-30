@@ -1,0 +1,49 @@
+:root {
+  /* # Colors */
+
+  /* ## Primary */
+  --Moderate_cyan: hsl(176, 50%, 47%);
+  --Dark_cyan: hsl(176, 72%, 28%);
+
+  /* ## Neutral */
+
+  --Black: hsl(0, 0%, 0%);
+  --Dark_gray: hsl(0, 0%, 48%);
+
+  /* ### Font */
+
+  --comissioner_font: "Commissioner", sans-serif;
+}
+/* CSS reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+button {
+  font: inherit;
+}
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/* header styling */
+.header {
+  background: url(./images/image-hero-mobile.jpg) no-repeat;
+  background-size: cover;
+  min-height: 300px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.toggle_menu_btn {
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+}
