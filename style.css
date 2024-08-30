@@ -30,6 +30,7 @@ button {
   cursor: pointer;
   border: 0;
   outline: none;
+  background: transparent;
 }
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
@@ -145,7 +146,6 @@ body {
 }
 
 .bookmark.btn {
-  background: transparent;
   display: flex;
   align-items: center;
   background-color: hsl(0, 0%, 88%);
@@ -155,7 +155,35 @@ body {
 .bookmark.btn p {
   display: none;
 }
+/* modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 90vw;
+  background-color: white;
+  padding: 1.25rem;
+  border-radius: .5rem;
+}
 
+.modal_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.modal_header h2 {
+  font-size: 1.25rem;
+}
+
+.modal p {
+  opacity: .6;
+  font-size: .875rem;
+}
 @media (min-width: 768px) {
   .header {
     background: url(./images/image-hero-desktop.jpg) no-repeat;
