@@ -12,7 +12,7 @@
 
   /* ### Font */
 
-  --comissioner_font: "Commissioner", sans-serif;
+  --commissioner_font: "Commissioner", sans-serif;
 }
 /* CSS reset */
 * {
@@ -26,24 +26,95 @@ img, picture, video, canvas, svg {
 }
 button {
   font: inherit;
+  cursor: pointer;
 }
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
+}
+a {
+  text-decoration: none;
+}
+body {
+  height: 100vh;
+  font-family: var(--commissioner_font);
+  font-size: 1rem;
 }
 /* header styling */
 .header {
   background: url(./images/image-hero-mobile.jpg) no-repeat;
   background-size: cover;
-  min-height: 300px;
+  min-height: 350px;
+  max-height: 700px;
   padding: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  position: relative;
 }
 
 .toggle_menu_btn {
-  cursor: pointer;
   background-color: transparent;
   border: 0;
   outline: none;
 }
+
+.mobile_menu {
+  position: absolute;
+  left: 6%;
+  top: 25%;
+  border-radius: .5rem;
+  padding: 1.25rem;
+  list-style: none;
+  background-color: white;
+  width: 90vw;
+  color: black;
+}
+
+.mobile_menu li a {
+  color: var(--Black);
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+.mobile_menu li:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.mobile_menu li {
+  padding: 1rem 0;
+}
+
+.mobile_menu.hidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header {
+    background: url(./images/image-hero-desktop.jpg) no-repeat;
+    min-height: 400px;
+    background-size: 100% 100%;
+    padding: 4rem;
+  }
+  .toggle_menu_btn {
+    display: none;
+  }
+  .mobile_menu.hidden,
+  .mobile_menu {
+    display: flex;
+    gap: 1rem;
+    background-color: transparent;
+    position: unset;
+    width: auto;
+    padding: 0;
+  }
+  .mobile_menu li a {
+    color: white;
+  }
+  .mobile_menu li:not(:last-child) {
+    border-bottom: unset;
+  }
+  .mobile_menu li {
+    padding: 0;
+  }
+}
+
