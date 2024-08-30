@@ -141,7 +141,7 @@ body {
   border-radius: 100vmax;
   background-color: var(--Moderate_cyan);
   color: white;
-  padding: .75rem 2rem;
+  padding: 1rem 2rem;
   font-weight: 500;
 }
 
@@ -159,14 +159,19 @@ body {
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 999;
   top: 10%;
   left: 50%;
   transform: translate(-50%);
   width: 90vw;
+  max-width: 600px;
+  height: 100%;
+  overflow-y: auto;
   background-color: white;
   padding: 1.25rem;
   border-radius: .5rem;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .modal_header {
@@ -180,9 +185,60 @@ body {
   font-size: 1.25rem;
 }
 
-.modal p {
+.modal_p {
   opacity: .6;
   font-size: .875rem;
+}
+
+.pledge_container {
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: .5rem;
+  padding: 2rem;
+}
+.pledge_container label:hover {
+  cursor: pointer;
+  color: var(--Moderate_cyan);
+}
+.pledge_container.out_of_stock {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.input_grp {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.input_grp input {
+  display: none;
+}
+
+.radio_btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, .25);
+}
+.pledge_label {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.minimum_pledge {
+  color: var(--Dark_cyan);
+  font-weight: 600;
+}
+.remaining_container {
+  display: flex;
+  gap: .5rem;
+  margin-top: 1rem;
+  align-items: center;
+}
+.remaining {
+  font-weight: 600;
 }
 @media (min-width: 768px) {
   .header {
@@ -218,6 +274,9 @@ body {
   }
   .bookmark.btn p {
     display: block;
+  }
+  .pledge_label {
+    flex-direction: row;
   }
 }
 
