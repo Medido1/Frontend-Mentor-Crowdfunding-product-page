@@ -95,16 +95,17 @@ body {
   flex-direction: column;
   align-items: center;
 }
+
 .project_intro {
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  
   text-align: center;
   gap: 1rem;
   padding: 3rem 1.25rem 2rem;
   width: 90vw;
-  max-width: 400px;
+  max-width: 600px;
   background-color: white;
   z-index: 999;
   border-radius: .5rem;
@@ -131,6 +132,7 @@ body {
 .intro_btns {
   display: flex;
   align-items: center;
+  justify-content: space-around;
   gap: 1rem;
 }
 
@@ -141,9 +143,19 @@ body {
   padding: .75rem 2rem;
   font-weight: 500;
 }
+
 .bookmark.btn {
   background: transparent;
+  display: flex;
+  align-items: center;
+  background-color: hsl(0, 0%, 88%);
+  border-radius: 100vmax;
+  gap: 1rem;
 }
+.bookmark.btn p {
+  display: none;
+}
+
 @media (min-width: 768px) {
   .header {
     background: url(./images/image-hero-desktop.jpg) no-repeat;
@@ -171,6 +183,13 @@ body {
   }
   .mobile_menu li {
     padding: 0;
+  }
+  /* main */
+  .bookmark.btn {
+    padding-right: 1rem;
+  }
+  .bookmark.btn p {
+    display: block;
   }
 }
 
