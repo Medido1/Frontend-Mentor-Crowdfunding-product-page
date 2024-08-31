@@ -86,6 +86,22 @@ function checkPledgeInput(index){
 function checkSucess() {
   return totalMoneyPledged >= 10000 ? true : false;
 }
+
+function fillProgressBar(){
+  let percentage = (Number(totalMoneyPledged) * 100) / 10000;
+  let currentWidth = 0;
+  function fillBar() {
+    currentWidth += 1;
+    progressBar.style.width = `${currentWidth}%`;
+    if (currentWidth >= percentage) {
+      clearInterval(intervalId)
+    }
+  }
+  
+  const intervalId = setInterval(fillBar, 50);
+}
+
+/* events */
 toggleMenuBtn.addEventListener("click", () => {
   changeIcon();
   mobileMenu.classList.toggle("hidden");
@@ -112,8 +128,6 @@ continueBtns.forEach((btn, index) => {
     totalMoneyPledgedText.textContent = `$${totalMoneyPledged}`;
     totalBackers += 1;
     totalBackerText.textContent = totalBackers;
-    let percentage = (Number(totalMoneyPledged) * 100) / 10000;
-    progressBar.style.width = `${percentage}%`;
     if (checkSucess()) {
       alert("You have just ended world hunger!!");
       hideModal();
@@ -128,5 +142,6 @@ closeThankYouModal.addEventListener("click", () => {
   pledgeContainers.forEach(container => {
     container.classList.remove("selected");
     hideModal();
+    fillProgressBar();
   })
 })
