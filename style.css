@@ -428,6 +428,9 @@ body {
   color: white;
   font-weight: 600;
 }
+.pledge_container_main .btn:hover {
+  background-color: var(--Dark_cyan);
+}
 .remaining_main {
   font-size: 2rem;
 }
