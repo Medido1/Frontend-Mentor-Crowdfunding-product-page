@@ -68,6 +68,10 @@ function checkPledgeInput(index){
     alert("Please enter a pledge!!");
     verified = false;
   }
+  else if (Number(pledgeInputs[index].value) < 0) {
+    alert("lol");
+    verified = false;
+  }
   else if (index === 1 && pledgeInputs[1].value < 25) {
     alert("minimum pledge is 25$!");
     verified = false;

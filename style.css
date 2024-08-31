@@ -416,5 +416,22 @@ body {
     flex-direction: row;
     justify-content: space-between;
   }
+  /* progess container */
+  .progress_container {
+    flex-direction: row;
+    gap: 4rem;
+    flex-wrap: wrap;
+    text-align: left;
+  }
+  .progress_container div:not(:nth-child(3)):not(:last-child) {
+    border-bottom: none;
+    border-right: 1px solid rgba(0, 0, 0, .1);
+    padding-right: 1rem;
+  }
+  .progress_container div:not(:last-child){
+    width: auto;
+    border-bottom: none;
+
+  }
 }
 
