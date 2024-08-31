@@ -172,6 +172,7 @@ body {
   border-radius: .5rem;
   flex-direction: column;
   gap: 1rem;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .25);
 }
 
 .modal_header {
@@ -221,6 +222,20 @@ body {
   height: 20px;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, .25);
+  position: relative;
+}
+.radio_btn::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--Moderate_cyan); /* Color of the filled circle */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.2s ease;
 }
 .pledge_label {
   display: flex;
@@ -240,6 +255,61 @@ body {
 .remaining {
   font-weight: 600;
 }
+/* selected pledge */
+.pledge_container.selected {
+  border: 1px solid var(--Moderate_cyan);
+}
+.pledge_container.selected .remaining_container {
+  display: none;
+}
+.pledge_container.selected .pledge_input {
+  display: flex;
+}
+.pledge_container.selected .radio_btn::before {
+  opacity: 1; /* Show the filled circle when clicked */
+}
+.pledge_input {  
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid rgba(0, 0, 0, .1);
+  padding-top: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+.pledge_input label {
+  opacity: .6;
+}
+.pledge_container .pledge_input {
+  display: none;
+}
+.pledge_btns {
+  display: flex;
+  position: relative;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.pledge_input input {
+  width: 50%;
+  border-radius: 100vmax;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, .1);
+  padding: .75rem 2rem;
+  font-weight: 600;
+  max-width: 100px;
+}
+.currency {
+  position: absolute;
+  top: 25%;
+  left: 5%;
+}
+.btn.continue {
+  background-color: var(--Moderate_cyan);
+  border-radius: 100vmax;
+  padding: .75rem 1.5rem;
+  color: white;
+  font-weight: 600;
+}
+
 @media (min-width: 768px) {
   .header {
     background: url(./images/image-hero-desktop.jpg) no-repeat;
@@ -277,6 +347,10 @@ body {
   }
   .pledge_label {
     flex-direction: row;
+  }
+  .pledge_input {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 
