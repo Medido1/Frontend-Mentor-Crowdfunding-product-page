@@ -108,7 +108,7 @@ body {
   width: 90vw;
   max-width: 600px;
   background-color: white;
-  z-index: 999;
+  z-index: 1;
   border-radius: .5rem;
   margin-top: -60px;
 }
@@ -159,7 +159,7 @@ body {
 .modal {
   display: none;
   position: fixed;
-  z-index: 999;
+  z-index: 2;
   top: 10%;
   left: 50%;
   transform: translate(-50%);
@@ -309,7 +309,37 @@ body {
   color: white;
   font-weight: 600;
 }
-
+/* thank you modal */
+.thank_you_modal {
+  position: fixed;
+  width: 90vw;
+  max-width: 300px;
+  border-radius: .5rem;
+  z-index: 999;
+  top: 10%;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, .25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1.25rem;
+  background-color: white;
+  text-align: center;
+}
+.thank_you_modal p {
+  opacity: .6;
+}
+.thank_you_modal button {
+  border-radius: 100vmax;
+  background-color: var(--Dark_cyan);
+  color: white;
+  font-weight: 600;
+  padding: 1rem 2rem;
+}
+.thank_you_modal.hidden {
+  display: none;
+}
 @media (min-width: 768px) {
   .header {
     background: url(./images/image-hero-desktop.jpg) no-repeat;

@@ -9,6 +9,8 @@ const radioBtns = modal.querySelectorAll("input[type='radio']");
 const inputGrps = modal.querySelectorAll(".input_grp");
 const continueBtns = modal.querySelectorAll(".continue");
 const remainingTexts = modal.querySelectorAll(".remaining");
+const thankYouModal = document.querySelector(".thank_you_modal");
+const closeThankYouModal = thankYouModal.querySelector("button");
 const iconSrcs = 
 [
   {src:"./images/icon-hamburger.svg"},
@@ -70,5 +72,12 @@ continueBtns.forEach((btn, index) => {
       remainingPledges[index - 1].remaining -= 1;
       remainingTexts[index -1].textContent = remainingPledges[index - 1].remaining;
     }
+    thankYouModal.classList.remove("hidden");
+  })
+})
+closeThankYouModal.addEventListener("click", () => {
+  thankYouModal.classList.add("hidden");
+  pledgeContainers.forEach(container => {
+    container.classList.remove("selected");
   })
 })
