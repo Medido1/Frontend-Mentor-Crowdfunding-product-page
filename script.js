@@ -14,6 +14,7 @@ const thankYouModal = document.querySelector(".thank_you_modal");
 const closeThankYouModal = thankYouModal.querySelector("button");
 const totalMoneyPledgedText = document.querySelector(".money_collected");
 const totalBackerText = document.querySelector(".total_backers");
+const progressBar = document.querySelector(".progress_bar div");
 
 
 let totalMoneyPledged = 0;
@@ -104,6 +105,8 @@ continueBtns.forEach((btn, index) => {
     totalMoneyPledgedText.textContent = `$${totalMoneyPledged}`;
     totalBackers += 1;
     totalBackerText.textContent = totalBackers;
+    let percentage = (Number(totalMoneyPledged) * 100) / 10000;
+    progressBar.style.width = `${percentage}%`;
     thankYouModal.classList.remove("hidden");
     pledgeInputs[index].value = "";
   })

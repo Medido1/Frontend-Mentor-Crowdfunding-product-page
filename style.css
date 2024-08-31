@@ -348,19 +348,31 @@ body {
   margin-top: 2rem;
   align-items: center;
 }
-.progress_container div {
+.progress_container div:not(:last-child) {
   display: flex;
   flex-direction: column;
   gap: .5rem;
   width: 50%;
 }
-.progress_container div:not(:last-child) {
+.progress_container div:not(:nth-child(3)):not(:last-child) {
   border-bottom: 1px solid rgba(0, 0, 0, .1);
   padding: 1rem 0;
 }
 .progress_container div p:first-child {
   font-size: 1.75rem;
   font-weight: 700;
+}
+.progress_bar {
+  width: 80vw;
+  height: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, .1);
+}
+.progress_bar div {
+  width: 0;
+  height: 100%;
+  background-color: var(--Moderate_cyan);
+  border-radius: 1rem;
 }
 @media (min-width: 768px) {
   .header {
