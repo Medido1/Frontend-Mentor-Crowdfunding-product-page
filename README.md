@@ -32,7 +32,7 @@ Users should be able to:
 
 ### Screenshot
   ## Desktop
-  ![](./screenshots/desktopModalSS.png)
+  ![](./screenshots/desktopSS.png)
   ## Desktop modal
   ![](./screenshots/desktopModalSS.png)
   ## Mobile
