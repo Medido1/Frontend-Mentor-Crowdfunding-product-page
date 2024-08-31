@@ -89,7 +89,7 @@ function checkSucess() {
 
 function fillProgressBar(){
   let percentage = (Number(totalMoneyPledged) * 100) / 10000;
-  let currentWidth = 0;
+  let currentWidth = parseFloat(progressBar.style.width) || 0;
   function fillBar() {
     currentWidth += 1;
     progressBar.style.width = `${currentWidth}%`;
@@ -97,7 +97,6 @@ function fillProgressBar(){
       clearInterval(intervalId)
     }
   }
-  
   const intervalId = setInterval(fillBar, 50);
 }
 
