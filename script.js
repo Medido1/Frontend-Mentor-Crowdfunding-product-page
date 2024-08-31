@@ -7,6 +7,7 @@ const closeModal = document.querySelector(".close");
 const pledgeContainers = modal.querySelectorAll(".pledge_container");
 const radioBtns = modal.querySelectorAll("input[type='radio']");
 const inputGrps = modal.querySelectorAll(".input_grp");
+const pledgeInputs = modal.querySelectorAll("input[type='number']");
 const continueBtns = modal.querySelectorAll(".continue");
 const remainingTexts = modal.querySelectorAll(".remaining");
 const thankYouModal = document.querySelector(".thank_you_modal");
@@ -51,6 +52,24 @@ function selectPledge(index) {
   pledgeContainers[index].classList.add("selected");
 }
 
+function checkPledgeInput(index){
+  let verified = true;
+  if (pledgeInputs[index].value.trim() === ""){
+    alert("Please enter a pledge!!");
+    verified = false;
+  }
+  else if (index === 1 && pledgeInputs[1].value < 25) {
+    alert("minimum pledge is 25$!");
+    verified = false;
+  }
+  else if (index === 2 && pledgeInputs[2].value < 75){
+    alert("minimum pledge is 75$!");
+    verified = false;
+  }
+  return verified;
+}
+console.log(pledgeInputs[1])
+
 toggleMenuBtn.addEventListener("click", () => {
   changeIcon();
   mobileMenu.classList.toggle("hidden");
@@ -68,6 +87,7 @@ inputGrps.forEach((grp,index) => {
 })
 continueBtns.forEach((btn, index) => {
   btn.addEventListener("click", () => {
+    if (!checkPledgeInput(index)) return;
     if (index > 0) {
       remainingPledges[index - 1].remaining -= 1;
       remainingTexts[index -1].textContent = remainingPledges[index - 1].remaining;
@@ -79,5 +99,6 @@ closeThankYouModal.addEventListener("click", () => {
   thankYouModal.classList.add("hidden");
   pledgeContainers.forEach(container => {
     container.classList.remove("selected");
+    hideModal();
   })
 })
