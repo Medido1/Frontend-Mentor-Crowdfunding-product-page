@@ -93,6 +93,7 @@ continueBtns.forEach((btn, index) => {
       remainingTexts[index -1].textContent = remainingPledges[index - 1].remaining;
     }
     thankYouModal.classList.remove("hidden");
+    pledgeInputs[index].value = "";
   })
 })
 closeThankYouModal.addEventListener("click", () => {
