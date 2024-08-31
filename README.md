@@ -50,10 +50,11 @@ Users should be able to:
 I tried to make some sort of animation showing the progress bar filling up depending on the % of the total 
 money remaining 
 
-function fillProgressBar(){
-  let percentage = (Number(totalMoneyPledged) * 100) / 10000;
-  let currentWidth = parseFloat(progressBar.style.width) || 0;
-  function fillBar() {
+'''js
+  function fillProgressBar(){
+    let percentage = (Number(totalMoneyPledged) * 100) / 10000;
+    let currentWidth = parseFloat(progressBar.style.width) || 0;
+    function fillBar() {
     currentWidth += 1;
     progressBar.style.width = `${currentWidth}%`;
     if (currentWidth >= percentage) {
