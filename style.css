@@ -158,6 +158,16 @@ body {
 .bookmark.btn p {
   display: none;
 }
+.bookmark.btn.clicked img{
+  color: #292626;
+  -webkit-filter: brightness(2.65) sepia(0.42) hue-rotate(129deg) saturate(2);
+          filter: brightness(2.65) sepia(0.42) hue-rotate(129deg) saturate(5);
+}
+.bookmark.btn.clicked p {
+  color: var(--Dark_cyan);
+  font-weight: 800;
+}
+
 /* modal */
 .modal {
   display: none;

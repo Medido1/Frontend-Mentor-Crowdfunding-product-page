@@ -15,6 +15,7 @@ const closeThankYouModal = thankYouModal.querySelector("button");
 const totalMoneyPledgedText = document.querySelector(".money_collected");
 const totalBackerText = document.querySelector(".total_backers");
 const progressBar = document.querySelector(".progress_bar div");
+const bookMarkBtn = document.querySelector(".bookmark")
 
 
 let totalMoneyPledged = 0;
@@ -143,4 +144,7 @@ closeThankYouModal.addEventListener("click", () => {
     hideModal();
     fillProgressBar();
   })
+})
+bookMarkBtn.addEventListener("click", () => {
+  bookMarkBtn.classList.toggle("clicked");
 })
