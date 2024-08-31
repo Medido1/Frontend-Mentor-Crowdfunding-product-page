@@ -13,10 +13,13 @@ const remainingTexts = modal.querySelectorAll(".remaining");
 const thankYouModal = document.querySelector(".thank_you_modal");
 const closeThankYouModal = thankYouModal.querySelector("button");
 const totalMoneyPledgedText = document.querySelector(".money_collected");
+const totalBackerText = document.querySelector(".total_backers");
 
 
 let totalMoneyPledged = 0;
 totalMoneyPledgedText.textContent = `$${totalMoneyPledged}`;
+let totalBackers = 0;
+totalBackerText.textContent = totalBackers;
 
 const iconSrcs = 
 [
@@ -99,6 +102,8 @@ continueBtns.forEach((btn, index) => {
     }
     totalMoneyPledged = Number(pledgeInputs[index].value) + totalMoneyPledged;
     totalMoneyPledgedText.textContent = `$${totalMoneyPledged}`;
+    totalBackers += 1;
+    totalBackerText.textContent = totalBackers;
     thankYouModal.classList.remove("hidden");
     pledgeInputs[index].value = "";
   })
