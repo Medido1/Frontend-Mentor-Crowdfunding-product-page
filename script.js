@@ -54,10 +54,14 @@ function changeIcon() {
 function showModal(e) {
   e.stopPropagation();
   modal.style.display = "flex";
+  modal.style.opacity = 1;
 }
 
 function hideModal() {
   modal.style.display = "none";
+  pledgeContainers.forEach(container => {
+    container.classList.remove("selected");
+  })
 }
 
 function selectPledge(index) {
@@ -172,8 +176,8 @@ bookMarkBtn.addEventListener("click", () => {
   bookMarkBtn.classList.toggle("clicked");
 })
 rewardBtns.forEach((btn, index) => {
-  btn.addEventListener("click", () => {
-    showModal();
+  btn.addEventListener("click", (e) => {
+    showModal(e);
     selectPledge(index + 1);
   })
 })
