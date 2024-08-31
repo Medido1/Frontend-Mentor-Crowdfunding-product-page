@@ -66,5 +66,5 @@ money remaining
 ## Author
 
 - Frontend Mentor - [@Medido1](https://www.frontendmentor.io/profile/Medido1)
-- Github - [@Medido1](https://www.frontendmentor.io/profile/Medido1)
+- Github - [@Medido1](https://github.com/Medido1)
 
