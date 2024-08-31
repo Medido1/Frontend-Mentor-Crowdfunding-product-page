@@ -33,8 +33,6 @@ Users should be able to:
 ### Screenshot
   ## Desktop
   ![](./screenshots/desktopSS.png)
-  ## Desktop modal
-  ![](./screenshots/desktopModalSS.png)
   ## Mobile
   ![](./screenshots/moblieSS.png)
 ## My process
