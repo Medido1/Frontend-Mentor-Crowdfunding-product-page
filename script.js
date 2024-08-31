@@ -5,11 +5,14 @@ const modal = document.querySelector(".modal");
 const backBtn = document.querySelector(".back"); /* back this project btn */
 const closeModal = document.querySelector(".close");
 const pledgeContainers = modal.querySelectorAll(".pledge_container");
+const pledgeContainersMain = document.querySelectorAll(".pledge_container_main");
 const radioBtns = modal.querySelectorAll("input[type='radio']");
 const inputGrps = modal.querySelectorAll(".input_grp");
 const pledgeInputs = modal.querySelectorAll("input[type='number']");
 const continueBtns = modal.querySelectorAll(".continue");
+const rewardBtns = document.querySelectorAll(".btn.reward");
 const remainingTexts = modal.querySelectorAll(".remaining");
+const remainingTextsMain = document.querySelectorAll(".remaining_main");
 const thankYouModal = document.querySelector(".thank_you_modal");
 const closeThankYouModal = thankYouModal.querySelector("button");
 const totalMoneyPledgedText = document.querySelector(".money_collected");
@@ -32,11 +35,14 @@ const remainingPledges =
 [
   {name: "bamboo_stand", remaining: 101},
   {name: "black_edition_stand", remaining: 64},
-  {name: "mahogany_special_edition", remaining: 0}
+  {name: "mahogany_special_edition", remaining: 1}
 ]
 let isMenuOpen = false;
 
 remainingTexts.forEach((text, index) => {
+  text.textContent = remainingPledges[index].remaining;
+})
+remainingTextsMain.forEach((text, index) => {
   text.textContent = remainingPledges[index].remaining;
 })
 
@@ -101,6 +107,37 @@ function fillProgressBar(){
   const intervalId = setInterval(fillBar, 50);
 }
 
+function markOutOfStock(index) {
+  pledgeContainers[index + 1].classList.add("out_of_stock");
+  pledgeContainersMain[index].classList.add("out_of_stock");
+  rewardBtns[index].textContent = "Out of Stock";
+  rewardBtns[index].style.cursor = "not-allowed";
+  rewardBtns[index].style.pointerEvents = "none";
+}
+
+function updateInfo(index) {
+  if (!checkPledgeInput(index)) return;
+    if (index > 0) {
+      remainingPledges[index - 1].remaining -= 1;
+      remainingTexts[index -1].textContent = remainingPledges[index - 1].remaining;
+      remainingTextsMain[index -1].textContent = remainingPledges[index - 1].remaining;
+      if (remainingPledges[index -1].remaining < 1) {
+        markOutOfStock(index - 1);
+      }
+    }
+    totalMoneyPledged = Number(pledgeInputs[index].value) + totalMoneyPledged;
+    totalMoneyPledgedText.textContent = `$${totalMoneyPledged}`;
+    totalBackers += 1;
+    totalBackerText.textContent = totalBackers;
+    if (checkSucess()) {
+      alert("You have just ended world hunger!!");
+      hideModal();
+      return;
+    }
+    thankYouModal.classList.remove("hidden");
+    pledgeInputs[index].value = "";
+}
+
 /* events */
 toggleMenuBtn.addEventListener("click", () => {
   changeIcon();
@@ -119,22 +156,7 @@ inputGrps.forEach((grp,index) => {
 })
 continueBtns.forEach((btn, index) => {
   btn.addEventListener("click", () => {
-    if (!checkPledgeInput(index)) return;
-    if (index > 0) {
-      remainingPledges[index - 1].remaining -= 1;
-      remainingTexts[index -1].textContent = remainingPledges[index - 1].remaining;
-    }
-    totalMoneyPledged = Number(pledgeInputs[index].value) + totalMoneyPledged;
-    totalMoneyPledgedText.textContent = `$${totalMoneyPledged}`;
-    totalBackers += 1;
-    totalBackerText.textContent = totalBackers;
-    if (checkSucess()) {
-      alert("You have just ended world hunger!!");
-      hideModal();
-      return;
-    }
-    thankYouModal.classList.remove("hidden");
-    pledgeInputs[index].value = "";
+    updateInfo(index);
   })
 })
 closeThankYouModal.addEventListener("click", () => {
@@ -147,4 +169,10 @@ closeThankYouModal.addEventListener("click", () => {
 })
 bookMarkBtn.addEventListener("click", () => {
   bookMarkBtn.classList.toggle("clicked");
+})
+rewardBtns.forEach((btn, index) => {
+  btn.addEventListener("click", () => {
+    showModal();
+    selectPledge(index + 1);
+  })
 })
