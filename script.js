@@ -51,7 +51,8 @@ function changeIcon() {
   isMenuOpen = !isMenuOpen;
 }
 
-function showModal() {
+function showModal(e) {
+  e.stopPropagation();
   modal.style.display = "flex";
 }
 
@@ -175,4 +176,9 @@ rewardBtns.forEach((btn, index) => {
     showModal();
     selectPledge(index + 1);
   })
+})
+window.addEventListener("click", (e) => {
+  if (modal.style.display === "flex" && !modal.contains(e.target)) {
+    hideModal();
+  }
 })
