@@ -83,6 +83,9 @@ function checkPledgeInput(index){
   return verified;
 }
 
+function checkSucess() {
+  return totalMoneyPledged >= 10000 ? true : false;
+}
 toggleMenuBtn.addEventListener("click", () => {
   changeIcon();
   mobileMenu.classList.toggle("hidden");
@@ -111,6 +114,11 @@ continueBtns.forEach((btn, index) => {
     totalBackerText.textContent = totalBackers;
     let percentage = (Number(totalMoneyPledged) * 100) / 10000;
     progressBar.style.width = `${percentage}%`;
+    if (checkSucess()) {
+      alert("You have just ended world hunger!!");
+      hideModal();
+      return;
+    }
     thankYouModal.classList.remove("hidden");
     pledgeInputs[index].value = "";
   })
